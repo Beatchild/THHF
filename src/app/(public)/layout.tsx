@@ -1,15 +1,9 @@
-import Link from 'next/link';
-import Image from 'next/image';
+﻿import Navigation from '@/components/Navigation';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="flex justify-between items-center px-6 py-4 bg-black/50 backdrop-blur-md fixed w-full top-0 z-50">
-        <a href="https://tbilisihiphop.com" className="relative w-48 h-12 hover:scale-105 transition-transform">
-          <Image src="/logo.png" alt="THHF Logo" fill className="object-contain object-left" priority />
-        </a>
-        
-      </nav>
+      <Navigation />
       
       <main className="flex-grow pt-24">
         {children}
