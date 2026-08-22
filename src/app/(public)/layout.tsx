@@ -8,10 +8,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
         <a href="https://tbilisihiphop.com" className="relative w-48 h-12 hover:scale-105 transition-transform">
           <Image src="/logo.png" alt="THHF Logo" fill className="object-contain object-left" priority />
         </a>
-        <div className="flex gap-4">
-          <Link href="/" className="hover:text-lime-400 transition-colors">Blog</Link>
-          <a href="https://tbilisihiphop.com" className="hover:text-lime-400 transition-colors">Main Site</a>
-        </div>
+        
       </nav>
       
       <main className="flex-grow pt-24">
