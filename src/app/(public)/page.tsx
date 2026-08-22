@@ -32,10 +32,10 @@ export default async function BlogHub() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-4">
             <div className="h-1 w-12 bg-lime-500"></div>
-            <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">???????</span>
+            <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">მთავარი</span>
           </div>
           <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter text-white leading-none drop-shadow-2xl">
-            ???? ?????????<span className="text-lime-500">.</span>
+            ბოლო სიახლეები<span className="text-lime-500">.</span>
           </h1>
           
         </div>
@@ -46,7 +46,7 @@ export default async function BlogHub() {
           <div className="flex flex-col items-center justify-center py-32 border-2 border-dashed border-white/20 rounded-3xl bg-black/20 backdrop-blur-sm">
             <span className="text-6xl mb-6">??</span>
             <h2 className="text-2xl font-bold text-white mb-2">No Stories Yet</h2>
-            <p className="text-white/70 mb-6 text-center max-w-md">???? ?????????...</p>
+            <p className="text-white/70 mb-6 text-center max-w-md">მალე დაემატება...</p>
           </div>
         ) : (
           <div className="flex flex-col gap-12">
