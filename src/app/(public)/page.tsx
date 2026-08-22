@@ -35,7 +35,7 @@ export default async function BlogHub() {
             <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">მთავარი</span>
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-white leading-none drop-shadow-2xl">
-            ცოდნის წყარო<span className="text-lime-500">.</span>
+            ცოდნის წყარო
           </h1>
           
         </div>
