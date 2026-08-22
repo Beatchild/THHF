@@ -8,7 +8,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
           THHF BLOG
         </Link>
         <div className="flex gap-4">
-          <Link href="/blog" className="hover:text-lime-400 transition-colors">Blog</Link>
+          <Link href="/" className="hover:text-lime-400 transition-colors">Blog</Link>
           <a href="https://tbilisihiphop.com" className="hover:text-lime-400 transition-colors">Main Site</a>
         </div>
       </nav>
@@ -23,3 +23,4 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
+
