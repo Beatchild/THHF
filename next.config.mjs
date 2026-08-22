@@ -8,7 +8,7 @@ const nextConfig = {
       },
     ],
   },
-  experimental: { serverActions: { bodySizeLimit: "10mb" }, serverComponentsExternalPackages: ["firebase-admin"] },
+  experimental: { serverActions: { bodySizeLimit: "10mb" }, serverExternalPackages: ["firebase-admin", "jose", "jwks-rsa"] },
 };
 
 export default nextConfig;
