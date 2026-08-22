@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Image from "next/image";
@@ -23,12 +23,14 @@ export default function Navigation() {
         
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a key={link.label} href={link.href} className="text-white hover:text-lime-400 font-bold text-sm tracking-widest uppercase transition-colors">
+          {navLinks.map((link, idx) => (
+            <a key={idx} href={link.href} className="text-white hover:text-lime-400 font-bold text-sm tracking-widest uppercase transition-colors">
               {link.label}
             </a>
           ))}
-          <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="ml-4 px-6 py-2 bg-lime-500 text-black font-black text-sm tracking-widest uppercase rounded hover:bg-lime-400 transition-colors">ბილეთები</a>
+          <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="ml-4 px-6 py-2 bg-lime-500 text-black font-black text-sm tracking-widest uppercase rounded hover:bg-lime-400 transition-colors">
+            ბილეთები
+          </a>
         </div>
 
         {/* Mobile Hamburger */}
@@ -46,12 +48,14 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 bg-black/95 z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 lg:hidden ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        {navLinks.map((link) => (
-          <a key={link.label} href={link.href} className="text-white hover:text-lime-400 font-black text-3xl tracking-widest uppercase transition-colors" onClick={() => setIsOpen(false)}>
+        {navLinks.map((link, idx) => (
+          <a key={idx} href={link.href} className="text-white hover:text-lime-400 font-black text-3xl tracking-widest uppercase transition-colors" onClick={() => setIsOpen(false)}>
             {link.label}
           </a>
         ))}
-        <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="mt-8 px-8 py-4 bg-lime-500 text-black font-black text-2xl tracking-widest uppercase rounded hover:bg-lime-400 transition-colors" onClick={() => setIsOpen(false)}>ბილეთები</a>
+        <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="mt-8 px-8 py-4 bg-lime-500 text-black font-black text-2xl tracking-widest uppercase rounded hover:bg-lime-400 transition-colors" onClick={() => setIsOpen(false)}>
+          ბილეთები
+        </a>
       </div>
     </>
   );
