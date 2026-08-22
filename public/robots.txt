@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://thhf.ge/sitemap.xml

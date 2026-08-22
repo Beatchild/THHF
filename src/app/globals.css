@@ -1,26 +1,256 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-grad-top: #3d1a5c;
+    --color-grad-bottom: #e68d77;
+    --color-accent-lime: #a3e01d;
+    --color-bg: #111111;
+    --color-card-bg: rgba(255, 255, 255, 0.03);
+    --color-text-main: #ffffff;
+    --color-text-muted: rgba(255, 255, 255, 0.6);
+  }
+  
+  body {
+    background: linear-gradient(180deg, var(--color-grad-top) 0%, var(--color-grad-bottom) 100%);
+    background-attachment: fixed;
+    color: var(--color-text-main);
+    min-height: 100vh;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.prose-editor h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-accent-lime);
+}
+
+.prose-editor h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.prose-editor p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.prose-editor ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-editor ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose-editor li {
+  margin-bottom: 0.25rem;
+}
+
+.prose-editor blockquote {
+  border-left: 4px solid var(--color-accent-lime);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.prose-editor img {
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.prose-editor code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  font-size: 0.9em;
+}
+
+.prose-editor pre {
+  background: #000;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+.prose-editor pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* TipTap placeholder if needed */
+.prose-editor p.is-editor-empty:first-child::before {
+  color: #52525b;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.prose-editor a {
+  color: var(--color-accent-lime);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.prose-editor a:hover {
+  color: white;
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Drop Cap for the very first paragraph of the post content */
+.drop-cap > p:first-of-type::first-letter {
+  font-size: 5rem;
+  line-height: 0.8;
+  float: left;
+  margin-right: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 900;
+  color: var(--color-accent-lime);
+  text-transform: uppercase;
+}
+
+/* Pull Quote Styling */
+.prose-editor blockquote.pull-quote {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--color-accent-lime);
+  border: none;
+  background: transparent;
+  text-align: center;
+  margin: 3rem 0;
+  padding: 0;
+  font-style: normal;
+  letter-spacing: -0.02em;
+}
+.prose-editor blockquote.pull-quote::before {
+  content: '"';
+  display: block;
+  font-size: 4rem;
+  line-height: 0;
+  margin-bottom: 1.5rem;
+  color: rgba(163, 224, 29, 0.3);
+}
+.prose-editor blockquote.pull-quote::after {
+  content: '"';
+  display: block;
+  font-size: 4rem;
+  line-height: 0;
+  margin-top: 2rem;
+  color: rgba(163, 224, 29, 0.3);
+}
+
+/* Fallback gallery style if JS carousel fails */
+.gallery-wrapper {
+  scrollbar-width: thin;
+}
+
+.prose-editor hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2rem 0;
+}
+
+.prose-editor u {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Modern Tiptap Placeholder */
+.prose-editor p.is-editor-empty:first-child::before {
+  color: #52525b;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  font-style: italic;
+  font-weight: 400;
+}
+/* Image Alignments */
+.image-align-left {
+  float: left;
+  margin: 1rem 1.5rem 1rem 0;
+  max-width: 50%;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.image-align-right {
+  float: right;
+  margin: 1rem 0 1rem 1.5rem;
+  max-width: 50%;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.image-align-center {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+.image-align-full {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 3rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+.image-align-small {
+  display: block;
+  margin: 2rem auto;
+  max-width: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+/* Fix Tiptap Image Selection */
+.ProseMirror-selectednode {
+  outline: 3px solid #a3e635 !important;
+  transition: outline 0.1s;
+  background-color: transparent !important;
+}
+
+img.ProseMirror-selectednode {
+  outline: 3px solid #a3e635 !important;
+  border-radius: 0.75rem;
 }
