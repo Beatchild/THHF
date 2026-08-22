@@ -7,11 +7,11 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "ABOUT", href: "https://tbilisihiphop.com/#about" },
-    { label: "LINEUP", href: "https://tbilisihiphop.com/#lineup" },
-    { label: "MAP", href: "https://tbilisihiphop.com/#map" },
-    { label: "RADIO", href: "https://tbilisihiphop.com/#radio" },
-    { label: "INFO", href: "https://tbilisihiphop.com/#info" },
+    { label: "ჩვენ შესახებ", href: "https://tbilisihiphop.com/#about" },
+    { label: "ლაინ-აფი", href: "https://tbilisihiphop.com/#lineup" },
+    { label: "რუკა", href: "https://tbilisihiphop.com/#map" },
+    { label: "რადიო", href: "https://tbilisihiphop.com/#radio" },
+    { label: "ინფო", href: "https://tbilisihiphop.com/#info" },
   ];
 
   return (
@@ -28,9 +28,7 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
-          <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="ml-4 px-6 py-2 bg-lime-500 text-black font-black text-sm tracking-widest uppercase rounded hover:bg-lime-400 transition-colors">
-            TICKETS
-          </a>
+          <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="ml-4 px-6 py-2 bg-lime-500 text-black font-black text-sm tracking-widest uppercase rounded hover:bg-lime-400 transition-colors">ბილეთები</a>
         </div>
 
         {/* Mobile Hamburger */}
@@ -53,9 +51,7 @@ export default function Navigation() {
             {link.label}
           </a>
         ))}
-        <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="mt-8 px-8 py-4 bg-lime-500 text-black font-black text-2xl tracking-widest uppercase rounded hover:bg-lime-400 transition-colors" onClick={() => setIsOpen(false)}>
-          TICKETS
-        </a>
+        <a href="https://tkt.ge/tbilisihiphop" target="_blank" rel="noopener noreferrer" className="mt-8 px-8 py-4 bg-lime-500 text-black font-black text-2xl tracking-widest uppercase rounded hover:bg-lime-400 transition-colors" onClick={() => setIsOpen(false)}>ბილეთები</a>
       </div>
     </>
   );
