@@ -43,11 +43,7 @@ export default async function BlogHub() {
 
       <div className="max-w-7xl mx-auto py-12 px-4">
         {posts.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-32 border-2 border-dashed border-white/20 rounded-3xl bg-black/20 backdrop-blur-sm">
-            <span className="text-6xl mb-6">??</span>
-            <h2 className="text-2xl font-bold text-white mb-2">No Stories Yet</h2>
-            <p className="text-white/70 mb-6 text-center max-w-md">მალე დაემატება...</p>
-          </div>
+          <div></div>
         ) : (
           <div className="flex flex-col gap-12">
             
