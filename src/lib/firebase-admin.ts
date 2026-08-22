@@ -11,10 +11,17 @@ const getFirebaseAdminApp = (): App => {
     return initializeApp();
   }
 
+  
   let privateKey = process.env.FIREBASE_PRIVATE_KEY || '';
-  if (privateKey.includes('\n') || privateKey.includes('\\n')) {
-    privateKey = privateKey.replace(/\\n/g, '\n');
+  if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+    privateKey = privateKey.slice(1, -1);
   }
+  if (privateKey.includes('\\n')) {
+    privateKey = privateKey.replace(/\\n/g, '\n');
+  } else if (privateKey.includes('\n')) {
+    privateKey = privateKey.replace(/\n/g, '\n');
+  }
+
 
   const credential = cert({
     projectId: process.env.FIREBASE_PROJECT_ID,
