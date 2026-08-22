@@ -1,46 +1,49 @@
 {
-  "name": "thhf-next-blog",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "@tiptap/extension-image": "^3.30.2",
-    "@tiptap/extension-link": "^3.30.2",
-    "@tiptap/extension-placeholder": "^3.30.2",
-    "@tiptap/extension-text-align": "^3.30.2",
-    "@tiptap/extension-underline": "^3.30.2",
-    "@tiptap/extension-youtube": "^3.30.2",
-    "@tiptap/pm": "^3.30.2",
-    "@tiptap/react": "^3.30.2",
-    "@tiptap/starter-kit": "^3.30.2",
-    "dotenv": "^17.4.2",
-    "embla-carousel-react": "^8.6.0",
-    "firebase": "^12.18.0",
-    "firebase-admin": "^14.3.0",
-    "html-react-parser": "^6.1.7",
-    "lucide-react": "^1.33.0",
-    "next": "16.3.2",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "rss": "^1.2.2",
-    "uuid": "^14.0.2",
-    "zod": "^4.4.3"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/rss": "^0.0.32",
-    "@types/uuid": "^10.0.0",
-    "eslint": "^9",
-    "eslint-config-next": "16.3.2",
-    "tailwindcss": "^4",
-    "typescript": "^5"
-  }
+    "name":  "thhf-next-blog",
+    "version":  "0.1.0",
+    "private":  true,
+    "scripts":  {
+                    "dev":  "next dev",
+                    "build":  "next build",
+                    "start":  "next start",
+                    "lint":  "eslint"
+                },
+    "dependencies":  {
+                         "@tiptap/extension-image":  "^3.30.2",
+                         "@tiptap/extension-link":  "^3.30.2",
+                         "@tiptap/extension-placeholder":  "^3.30.2",
+                         "@tiptap/extension-text-align":  "^3.30.2",
+                         "@tiptap/extension-underline":  "^3.30.2",
+                         "@tiptap/extension-youtube":  "^3.30.2",
+                         "@tiptap/pm":  "^3.30.2",
+                         "@tiptap/react":  "^3.30.2",
+                         "@tiptap/starter-kit":  "^3.30.2",
+                         "dotenv":  "^17.4.2",
+                         "embla-carousel-react":  "^8.6.0",
+                         "firebase":  "^12.18.0",
+                         "firebase-admin":  "^14.3.0",
+                         "html-react-parser":  "^6.1.7",
+                         "lucide-react":  "^1.33.0",
+                         "next":  "16.3.2",
+                         "react":  "19.2.8",
+                         "react-dom":  "19.2.8",
+                         "rss":  "^1.2.2",
+                         "uuid":  "^14.0.2",
+                         "zod":  "^4.4.3"
+                     },
+    "devDependencies":  {
+                            "@tailwindcss/postcss":  "^4",
+                            "@types/node":  "^20",
+                            "@types/react":  "^19",
+                            "@types/react-dom":  "^19",
+                            "@types/rss":  "^0.0.32",
+                            "@types/uuid":  "^10.0.0",
+                            "eslint":  "^9",
+                            "eslint-config-next":  "16.3.2",
+                            "tailwindcss":  "^4",
+                            "typescript":  "^5"
+                        },
+    "overrides":  {
+                      "jose":  "^4.15.5"
+                  }
 }
