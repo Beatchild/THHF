@@ -32,14 +32,12 @@ export default async function BlogHub() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-4">
             <div className="h-1 w-12 bg-lime-500"></div>
-            <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">The Front Page</span>
+            <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">???????</span>
           </div>
           <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter text-white leading-none drop-shadow-2xl">
-            LATEST NEWS<span className="text-lime-500">.</span>
+            ???? ?????????<span className="text-lime-500">.</span>
           </h1>
-          <p className="mt-6 text-xl md:text-2xl text-white/80 max-w-2xl font-medium drop-shadow-md">
-            Curated street culture, exclusive interviews, and in-depth hip-hop journalism.
-          </p>
+          
         </div>
       </div>
 
@@ -185,4 +183,5 @@ export default async function BlogHub() {
     </div>
   );
 }
+
 
