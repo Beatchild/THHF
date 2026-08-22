@@ -58,7 +58,7 @@ export default async function BlogHub() {
             
             {/* HERO POST - Asymmetric Massive Layout */}
             {heroPost && (
-              <Link href={`/blog/${heroPost.slug}`} className="group block">
+              <Link href={`/${heroPost.slug}`} className="group block">
                 <article className="relative w-full h-[60vh] md:h-[80vh] rounded-2xl overflow-hidden bg-black/40 border border-white/10 flex items-end shadow-2xl backdrop-blur-sm hover:border-lime-500/50 transition-colors">
                   {heroPost.coverImage && (
                     <div className="absolute inset-0 z-0">
@@ -96,7 +96,7 @@ export default async function BlogHub() {
             {secondaryPosts.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-white/10 pb-12">
                 {secondaryPosts.map((post, index) => (
-                  <Link href={`/blog/${post.slug}`} key={post.id} className="group block">
+                  <Link href={`/${post.slug}`} key={post.id} className="group block">
                     <article className="flex flex-col h-full">
                       {post.coverImage ? (
                         <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden mb-6 bg-black/30 border border-white/10 shadow-xl">
@@ -145,7 +145,7 @@ export default async function BlogHub() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {gridPosts.map((post) => (
-                    <Link href={`/blog/${post.slug}`} key={post.id} className="group block">
+                    <Link href={`/${post.slug}`} key={post.id} className="group block">
                       <article className="flex flex-col h-full bg-black/20 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-lime-500/50 transition-colors shadow-lg hover:shadow-2xl">
                         {post.coverImage ? (
                           <div className="relative h-48 w-full overflow-hidden border-b border-white/10">
@@ -185,3 +185,4 @@ export default async function BlogHub() {
     </div>
   );
 }
+
