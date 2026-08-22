@@ -46,10 +46,7 @@ export default async function BlogHub() {
           <div className="flex flex-col items-center justify-center py-32 border-2 border-dashed border-white/20 rounded-3xl bg-black/20 backdrop-blur-sm">
             <span className="text-6xl mb-6">??</span>
             <h2 className="text-2xl font-bold text-white mb-2">No Stories Yet</h2>
-            <p className="text-white/70 mb-6 text-center max-w-md">The editorial desk is currently empty. Go to the Admin Panel and publish your first story to see this page come alive.</p>
-            <Link href="/admin/posts/new" className="px-6 py-3 bg-lime-500 text-black font-bold uppercase tracking-wide text-sm hover:bg-lime-400 transition-colors rounded">
-              Write a Story
-            </Link>
+            <p className="text-white/70 mb-6 text-center max-w-md">???? ?????????...</p>
           </div>
         ) : (
           <div className="flex flex-col gap-12">
@@ -183,5 +180,6 @@ export default async function BlogHub() {
     </div>
   );
 }
+
 
 
