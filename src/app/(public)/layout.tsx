@@ -1,12 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PublicLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="flex justify-between items-center p-6 bg-black/50 backdrop-blur-md fixed w-full top-0 z-50">
-        <Link href="/" className="text-2xl font-bold tracking-wider uppercase" style={{ color: 'var(--color-accent-lime)' }}>
-          THHF BLOG
-        </Link>
+      <nav className="flex justify-between items-center px-6 py-4 bg-black/50 backdrop-blur-md fixed w-full top-0 z-50">
+        <a href="https://tbilisihiphop.com" className="relative w-48 h-12 hover:scale-105 transition-transform">
+          <Image src="/logo.png" alt="THHF Logo" fill className="object-contain object-left" priority />
+        </a>
         <div className="flex gap-4">
           <Link href="/" className="hover:text-lime-400 transition-colors">Blog</Link>
           <a href="https://tbilisihiphop.com" className="hover:text-lime-400 transition-colors">Main Site</a>
@@ -23,4 +24,3 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     </div>
   );
 }
-
