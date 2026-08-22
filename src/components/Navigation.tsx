@@ -10,7 +10,7 @@ export default function Navigation() {
     { label: "ჩვენ შესახებ", href: "https://tbilisihiphop.com/#about" },
     { label: "ლაინ-აფი", href: "https://tbilisihiphop.com/#lineup" },
     { label: "რუკა", href: "https://tbilisihiphop.com/#map" },
-    { label: "რადიო", href: "https://tbilisihiphop.com/#radio" },
+    { label: "რადიო", href: "https://radio.tbilisihiphop.com" },
     { label: "ინფო", href: "https://tbilisihiphop.com/#info" },
   ];
 
