@@ -2,63 +2,49 @@ import { adminDb } from '@/lib/firebase-admin';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const revalidate = 60; // ISR every 60 seconds
-export const dynamic = 'force-dynamic';
+export const revalidate = 60; // Revalidate every 60 seconds
 
-export default async function BlogHub() {
-  let posts: any[] = [];
-  try {
-    const postsQuery = await adminDb.collection('posts')
-      .where('status', '==', 'published')
-      .orderBy('publishedAt', 'desc')
-      .get();
-      
-    posts = postsQuery.docs.map(doc => ({ id: doc.id, ...doc.data() } as any));
-  } catch (e) {
-    console.error(e);
-  }
+export default async function HomePage() {
+  const postsQuery = await adminDb
+    .collection('posts')
+    .where('status', '==', 'published')
+    .orderBy('publishedAt', 'desc')
+    .limit(10)
+    .get();
 
-  const heroPost = posts.length > 0 ? posts[0] : null;
-  const secondaryPosts = posts.length > 1 ? posts.slice(1, 3) : [];
-  const gridPosts = posts.length > 3 ? posts.slice(3) : [];
+  const posts = postsQuery.docs.map(doc => ({ id: doc.id, ...doc.data() } as any));
+  
+  const heroPost = posts[0];
+  const secondaryPosts = posts.slice(1, 3);
+  const gridPosts = posts.slice(3);
 
   return (
     <div className="min-h-screen">
-      {/* Editorial Header */}
-      <div className="pt-24 pb-12 px-4 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(#a3e01d 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-        </div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-1 w-12 bg-lime-500"></div>
-            <span className="text-lime-500 font-mono text-sm tracking-widest uppercase font-bold drop-shadow-md">მთავარი</span>
-          </div>
-          <h1 className="text-5xl md:text-6xl lg:text-8xl font-black tracking-tighter text-white leading-none drop-shadow-2xl">
-            ცოდნის წყარო
-          </h1>
-          
-        </div>
+      
+      {/* Title area (visually hidden but good for SEO) */}
+      <div className="sr-only">
+        <h1>Tbilisi Hip-Hop Festival Blog</h1>
       </div>
 
-      <div className="max-w-7xl mx-auto py-12 px-4">
-        {posts.length === 0 ? (
-          <div></div>
-        ) : (
-          <div className="flex flex-col gap-12">
-            
-            {/* HERO POST - Asymmetric Massive Layout */}
-            {heroPost && (
-              <Link href={`/${heroPost.slug}`} className="group block">
-                <article className="relative w-full h-[60vh] md:h-[80vh] rounded-2xl overflow-hidden bg-black/40 border border-white/10 flex items-end shadow-2xl backdrop-blur-sm hover:border-lime-500/50 transition-colors">
-                  {heroPost.coverImage && (
-                    <div className="absolute inset-0 z-0">
-                      <Image src={heroPost.coverImage} alt={heroPost.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" priority />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
-                    </div>
-                  )}
-                  
-                  <div className="relative z-10 w-full max-w-4xl p-6 md:p-12">
+      {posts.length === 0 ? (
+        <div className="max-w-7xl mx-auto py-12 px-4"></div>
+      ) : (
+        <div className="flex flex-col">
+          
+          {/* FULL WIDTH HERO POST */}
+          {heroPost && (
+            <Link href={/ + heroPost.slug} className="group block w-full relative">
+              <article className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden bg-black flex items-end shadow-2xl">
+                {heroPost.coverImage && (
+                  <div className="absolute inset-0 z-0">
+                    <Image src={heroPost.coverImage} alt={heroPost.title} fill className="object-cover group-hover:scale-105 transition-transform duration-1000" priority />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90" />
+                  </div>
+                )}
+                
+                {/* Ensure text doesn't touch the very edges of the screen by wrapping in max-w-7xl */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto p-6 md:p-12 md:pb-16 flex flex-col justify-end h-full">
+                  <div className="max-w-4xl">
                     <div className="flex items-center gap-3 mb-6">
                       <span className="px-3 py-1 bg-lime-500 text-black text-xs font-black uppercase tracking-widest shadow-lg">
                         {heroPost.category || 'Featured'}
@@ -74,20 +60,17 @@ export default async function BlogHub() {
                       {heroPost.excerpt}
                     </p>
                   </div>
-                  
-                  {/* Decorative huge numbering */}
-                  <div className="absolute top-8 right-8 z-10 hidden md:block">
-                    <span className="text-8xl font-black text-white/30 select-none drop-shadow-xl">01</span>
-                  </div>
-                </article>
-              </Link>
-            )}
+                </div>
+              </article>
+            </Link>
+          )}
 
+          <div className="max-w-7xl mx-auto w-full py-16 px-4 flex flex-col gap-16">
             {/* SECONDARY POSTS - Split Screen */}
             {secondaryPosts.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-white/10 pb-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-white/10 pb-16">
                 {secondaryPosts.map((post, index) => (
-                  <Link href={`/${post.slug}`} key={post.id} className="group block">
+                  <Link href={/ + post.slug} key={post.id} className="group block">
                     <article className="flex flex-col h-full">
                       {post.coverImage ? (
                         <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden mb-6 bg-black/30 border border-white/10 shadow-xl">
@@ -107,7 +90,6 @@ export default async function BlogHub() {
                       <div className="flex-1 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center gap-3 mb-3">
-                            <span className="text-lime-400 font-bold text-sm select-none drop-shadow-md">0{index + 2} //</span>
                             <span className="text-white/60 text-xs font-mono uppercase font-bold">
                               {post.publishedAt ? new Date(post.publishedAt.toDate()).toLocaleDateString() : 'Just now'}
                             </span>
@@ -136,7 +118,7 @@ export default async function BlogHub() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {gridPosts.map((post) => (
-                    <Link href={`/${post.slug}`} key={post.id} className="group block">
+                    <Link href={/ + post.slug} key={post.id} className="group block">
                       <article className="flex flex-col h-full bg-black/20 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-lime-500/50 transition-colors shadow-lg hover:shadow-2xl">
                         {post.coverImage ? (
                           <div className="relative h-48 w-full overflow-hidden border-b border-white/10">
@@ -169,13 +151,9 @@ export default async function BlogHub() {
                 </div>
               </div>
             )}
-
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
-
-
-
