@@ -177,8 +177,8 @@ export default async function BlogPost({ params }: Props) {
         )}
         
         {/* CONTENT & SIDEBAR */}
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row gap-12 pb-24">
-          <div className="flex-1 w-full max-w-3xl">
+        <div className="max-w-[85rem] mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 pb-24">
+          <div className="flex-1 w-full">
             <div className="prose-editor drop-cap text-lg md:text-xl font-medium leading-relaxed text-zinc-300">
               {parsedContent}
             </div>
@@ -205,7 +205,7 @@ export default async function BlogPost({ params }: Props) {
           </div>
           
           {/* SIDEBAR TOC */}
-          <div className="hidden md:block w-72 shrink-0">
+          <div className="hidden lg:block w-72 shrink-0">
             <TableOfContents />
           </div>
         </div>
@@ -213,7 +213,7 @@ export default async function BlogPost({ params }: Props) {
         {/* UP NEXT */}
         {upNext && (
           <div className="border-t border-zinc-800 bg-[#0a0a0a]">
-            <div className="max-w-6xl mx-auto px-4 py-24">
+            <div className="max-w-[85rem] mx-auto px-6 md:px-12 py-24">
               <h3 className="text-zinc-500 font-bold uppercase tracking-widest text-sm mb-8">Up Next</h3>
               <Link href={`/blog/${upNext.slug}`} className="group flex flex-col md:flex-row gap-8 items-center">
                 {upNext.coverImage && (
