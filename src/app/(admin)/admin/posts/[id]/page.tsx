@@ -11,18 +11,25 @@ export default async function EditPostPage({ params }: { params: { id: string } 
   
   const rawData = postDoc.data() || {};
   
-  // Safely serialize complex types (like Firestore Timestamps) before passing to Client Component
+  // Create a 100% plain object to pass to the Client Component
   const post = {
     id: postDoc.id,
-    ...rawData,
-    createdAt: rawData.createdAt?.toDate ? rawData.createdAt.toDate().toISOString() : rawData.createdAt,
-    updatedAt: rawData.updatedAt?.toDate ? rawData.updatedAt.toDate().toISOString() : rawData.updatedAt,
+    title: rawData.title || '',
+    slug: rawData.slug || '',
+    category: rawData.category || '',
+    status: rawData.status || 'draft',
+    layoutStyle: rawData.layoutStyle || 'parallax',
+    coverImage: rawData.coverImage || '',
+    excerpt: rawData.excerpt || '',
+    content: rawData.content || '',
+    createdAt: rawData.createdAt?.toDate ? rawData.createdAt.toDate().toISOString() : (typeof rawData.createdAt === 'string' ? rawData.createdAt : null),
+    updatedAt: rawData.updatedAt?.toDate ? rawData.updatedAt.toDate().toISOString() : (typeof rawData.updatedAt === 'string' ? rawData.updatedAt : null),
   };
   
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-8">Edit Post</h1>
-      <EditPostForm post={post} />
+      <EditPostForm post={post as any} />
     </div>
   );
 }
