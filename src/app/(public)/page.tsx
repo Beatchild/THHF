@@ -58,7 +58,7 @@ export default async function HomePage() {
                 
                 {/* Ensure text doesn't touch the very edges of the screen by wrapping in max-w-7xl */}
                 <div className="relative z-10 w-full max-w-7xl mx-auto p-6 md:p-12 md:pb-16 flex flex-col justify-end h-full">
-                  <div className="max-w-4xl">
+                  <div className="max-w-6xl">
                     <div className="flex items-center gap-3 mb-6">
                       <span className="px-3 py-1 bg-lime-500 text-black text-xs font-black uppercase tracking-widest shadow-lg">
                         {heroPost.category || 'Featured'}
@@ -67,10 +67,10 @@ export default async function HomePage() {
                         {heroPost.publishedAt ? new Date(heroPost.publishedAt.toDate()).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : 'New'}
                       </span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] group-hover:text-lime-400 transition-colors drop-shadow-2xl">
+                    <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-[1.05] group-hover:text-lime-400 transition-colors drop-shadow-2xl">
                       {heroPost.title}
                     </h2>
-                    <p className="text-lg md:text-2xl text-white/90 font-medium line-clamp-2 md:line-clamp-3 max-w-3xl drop-shadow-lg">
+                    <p className="text-lg md:text-2xl text-white/90 font-medium line-clamp-2 md:line-clamp-3 max-w-5xl drop-shadow-lg">
                       {heroPost.excerpt}
                     </p>
                   </div>
