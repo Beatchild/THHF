@@ -47,7 +47,7 @@ export default async function HomePage() {
           
           {/* FULL WIDTH HERO POST */}
           {heroPost && (
-            <Link href={/ + heroPost.slug} className="group block w-full relative">
+            <Link href={'/' + heroPost.slug} className="group block w-full relative">
               <article className="relative w-full h-[65vh] md:h-[80vh] overflow-hidden bg-black flex items-end shadow-2xl">
                 {heroPost.coverImage && (
                   <div className="absolute inset-0 z-0">
@@ -84,7 +84,7 @@ export default async function HomePage() {
             {secondaryPosts.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-white/10 pb-16">
                 {secondaryPosts.map((post, index) => (
-                  <Link href={/ + post.slug} key={post.id} className="group block">
+                  <Link href={'/' + post.slug} key={post.id} className="group block">
                     <article className="flex flex-col h-full">
                       {post.coverImage ? (
                         <div className="relative h-64 md:h-80 w-full rounded-xl overflow-hidden mb-6 bg-black/30 border border-white/10 shadow-xl">
@@ -132,7 +132,7 @@ export default async function HomePage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {gridPosts.map((post) => (
-                    <Link href={/ + post.slug} key={post.id} className="group block">
+                    <Link href={'/' + post.slug} key={post.id} className="group block">
                       <article className="flex flex-col h-full bg-black/20 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden hover:border-lime-500/50 transition-colors shadow-lg hover:shadow-2xl">
                         {post.coverImage ? (
                           <div className="relative h-48 w-full overflow-hidden border-b border-white/10">
