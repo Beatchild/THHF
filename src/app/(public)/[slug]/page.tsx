@@ -179,7 +179,7 @@ export default async function BlogPost({ params }: Props) {
         {/* CONTENT & SIDEBAR */}
         <div className="max-w-[85rem] mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 pb-24">
           <div className="flex-1 w-full">
-            <div className="prose-editor drop-cap text-lg md:text-xl font-medium leading-relaxed text-zinc-300">
+            <div className="prose-editor text-lg md:text-xl font-medium leading-relaxed text-zinc-300">
               {parsedContent}
             </div>
             
