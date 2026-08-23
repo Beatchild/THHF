@@ -2,8 +2,9 @@
 import EditPostForm from './EditPostForm';
 import { notFound } from 'next/navigation';
 
-export default async function EditPostPage({ params }: { params: { id: string } }) {
-  const postDoc = await adminDb.collection('posts').doc(params.id).get();
+export default async function EditPostPage({ params }: { params: Promise<{ id: string }> }) {
+  const resolvedParams = await params;
+  const postDoc = await adminDb.collection('posts').doc(resolvedParams.id).get();
   
   if (!postDoc.exists) {
     notFound();
@@ -11,7 +12,6 @@ export default async function EditPostPage({ params }: { params: { id: string } 
   
   const rawData = postDoc.data() || {};
   
-  // Create a 100% plain object to pass to the Client Component
   const post = {
     id: postDoc.id,
     title: rawData.title || '',
