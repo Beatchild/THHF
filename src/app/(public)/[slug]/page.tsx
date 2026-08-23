@@ -188,20 +188,7 @@ export default async function BlogPost({ params }: Props) {
               <ClapButton postId={postDoc.id} initialClaps={post.claps || 0} />
             </div>
             
-            {/* AUTHOR BIO */}
-            <div className="mt-20 p-8 bg-zinc-900 border border-zinc-800 rounded-2xl flex items-center gap-6">
-              <div className="w-20 h-20 rounded-full bg-zinc-800 flex items-center justify-center overflow-hidden shrink-0">
-                <span className="text-3xl">??</span>
-              </div>
-              <div>
-                <h4 className="text-white font-bold text-xl mb-1">{post.author?.name || 'Editorial Team'}</h4>
-                <p className="text-zinc-400 text-sm mb-3">Written by our dedicated editorial team focusing on culture, music, and the underground.</p>
-                <div className="flex gap-4 mt-4">
-                  <a href={`https://twitter.com/intent/tweet?text=${post.title}&url=https://thhf.ge/blog/${post.slug}`} target="_blank" rel="noreferrer" className="text-lime-500 hover:text-lime-400 text-sm font-bold uppercase tracking-wide">Share on X</a>
-                  <a href={`https://www.facebook.com/sharer/sharer.php?u=https://thhf.ge/blog/${post.slug}`} target="_blank" rel="noreferrer" className="text-lime-500 hover:text-lime-400 text-sm font-bold uppercase tracking-wide">Share on Facebook</a>
-                </div>
-              </div>
-            </div>
+            
           </div>
           
           {/* SIDEBAR TOC */}
